@@ -1,0 +1,16 @@
+Design Overview:
+I designed my program with ease-of-use in mind. For this reason, I created a file system to automatically store encrypted/decrypted/hashed in their respective folders. I also included an Original_Files folder to store original files without the risk of accidentally destroying them.
+
+Key Decisions:
+One of the key decisions I made was to not opt to sign every message prior to encrypting in RSA- I made this decision for the sake of simplicity, to not make the testing process convoluted. This means that Users can only be receivers, not senders. Another important decision was relating to the RSA encryption having a character limit. To avoid being limited in the size of my files, I opted to split the input files' data in sections, stored in a list. Each of the parts is encrypted individually. I have also made some manipulations with the file data in order to more easily read/store the encrypted versions, and ensure that any file type can be handled.
+
+How to:
+To use the program, first ensure the packages {cryptography, hashlib, os} are installed, then run the python file. Select the appropriate option in the menu afterwards. For RSA, it necessary to create key value pairs first. The User() class handles the Private Key and Public Key for the designated user.
+
+It is important to put the file extension in text directly, without surrounding it with anything, and ensure there are no backslashes [\] and only forward slashes [/], as the backslash is an escape character and will cause issues. I could have handled these cases in the program, but for the sake of keeping things simple, I opted not to. The program also does not make assumptions on the location of files. Even if a file is in the Original_Files folder, the program still needs to be pointed to the file. 
+
+example:
+>Original_Files/CyberChase.txt
+
+Testing:
+I have tested the program extensively with different file formats. Everything seems to work without issues. The program has very robust error handling, as long as files are not moved during operation, the program will (probably) not crash.
